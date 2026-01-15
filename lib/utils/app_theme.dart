@@ -16,24 +16,26 @@ class AppThemes {
       onSurface: Colors.black,
       error: Colors.red,
       onError: Colors.white,
+      surfaceBright: Color(0xFFF5F5F5),
     ),
     useMaterial3: true,
   );
 
   static final dark = ThemeData(
     brightness: Brightness.dark,
-    textTheme: GoogleFonts.openSansTextTheme(ThemeData.light().textTheme),
-    scaffoldBackgroundColor: Colors.black,
+    textTheme: GoogleFonts.openSansTextTheme(ThemeData.dark().textTheme),
+    scaffoldBackgroundColor: Color(0xFF1C1C1E),
     colorScheme: const ColorScheme(
       brightness: Brightness.dark,
       primary: Colors.white,
       onPrimary: Colors.black,
       secondary: Colors.white,
       onSecondary: Colors.black,
-      surface: Colors.black,
+      surface: Color(0xFF1C1C1E),
       onSurface: Colors.white,
       error: Colors.red,
       onError: Colors.black,
+      surfaceBright: Color(0xFF424242),
     ),
     useMaterial3: true,
   );

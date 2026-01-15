@@ -40,6 +40,10 @@ dependencies:
   google_fonts: ^7.0.2
   flutter_secure_storage: ^10.0.0
   get_storage: ^2.1.1
+  flutter_screenutil: ^5.9.3
+  flutter_rating_bar: ^4.0.1
+  cached_network_image: ^3.4.1
+  skeletonizer: ^2.1.2
 
 dev_dependencies:
   flutter_test:

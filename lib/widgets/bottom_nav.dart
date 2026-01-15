@@ -25,7 +25,6 @@ class _BottomNavState extends State<BottomNav> {
           });
         },
         currentIndex: currentIndex,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         items: [
           BottomNavigationBarItem(icon: Icon(Iconsax.home), label: 'Home'),

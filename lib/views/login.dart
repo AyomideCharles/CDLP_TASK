@@ -3,6 +3,7 @@ import 'package:cpld_task/widgets/buttons.dart';
 import 'package:cpld_task/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -26,11 +27,25 @@ class Login extends StatelessWidget {
               CustomTextField(
                 hint: 'Username',
                 controller: controller.usernameController,
+                hasSuffixIcon: true,
+                suffixIcon: Icon(Iconsax.user),
               ),
               SizedBox(height: 30),
-              CustomTextField(
-                hint: 'Password',
-                controller: controller.passwordController,
+              Obx(
+                () => CustomTextField(
+                  isObscure: !controller.signInPasswordVisible.value,
+                  hint: 'Password',
+                  controller: controller.passwordController,
+                  hasSuffixIcon: true,
+                  suffixIcon: InkWell(
+                    onTap: () {
+                      controller.toggleSignInPasswordVisibility();
+                    },
+                    child: (controller.signInPasswordVisible.value)
+                        ? const Icon(Iconsax.eye_slash4)
+                        : const Icon(Iconsax.eye),
+                  ),
+                ),
               ),
               SizedBox(height: 30),
               Obx(

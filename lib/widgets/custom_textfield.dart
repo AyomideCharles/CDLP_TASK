@@ -5,12 +5,18 @@ class CustomTextField extends StatelessWidget {
   final String? hint;
   final TextEditingController? controller;
   final bool isNumberKeys;
+  final bool? isObscure;
+  final Widget? suffixIcon;
+  final bool hasSuffixIcon;
 
   const CustomTextField({
     super.key,
     this.hint,
     this.controller,
     this.isNumberKeys = false,
+    this.isObscure = false,
+    this.hasSuffixIcon = false,
+    this.suffixIcon,
   });
 
   @override
@@ -19,6 +25,8 @@ class CustomTextField extends StatelessWidget {
       height: 48.h,
       child: TextFormField(
         controller: controller,
+        obscureText: isObscure!,
+
         style: TextStyle(
           color: Theme.of(context).colorScheme.primary,
           fontSize: 12.sp,
@@ -33,6 +41,7 @@ class CustomTextField extends StatelessWidget {
             fontSize: 12.sp,
             fontWeight: FontWeight.w300,
           ),
+           suffixIcon: hasSuffixIcon ? suffixIcon : null,
           contentPadding: EdgeInsets.symmetric(
             horizontal: 16.w,
             vertical: 17.h,

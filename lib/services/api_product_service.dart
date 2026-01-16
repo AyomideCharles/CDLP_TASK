@@ -1,24 +1,21 @@
-import 'dart:convert';
-
 import 'package:cpld_task/models/products_model.dart';
+import 'package:cpld_task/models/single_product_model.dart';
 import 'package:cpld_task/services/api_urls.dart';
-import 'package:http/http.dart' as http;
+import 'package:cpld_task/services/http_client.dart';
 
 class ApiProductService {
+  final ApiClient httpClient = ApiClient();
+
   Future<List<Product>> getProducts() async {
-    try {
-      final response = await http.get(
-        Uri.parse(ApiUrls.products),
-        headers: {'Content-Type': 'application/json'},
-      );
-      final data = jsonDecode(response.body);
-      if (response.statusCode == 200) {
-        return ProductsResponse.fromJson(data).products;
-      } else {
-        throw (data['message'] ?? 'Failed to fetch user info');
-      }
-    } catch (e) {
-      rethrow;
-    }
+    final response = await httpClient.get(ApiUrls.products);
+
+    return ProductsResponse.fromJson(response).products;
+  }
+
+  Future<SingleProductModel> singleProduct(int id) async {
+    return await httpClient.get(
+      ApiUrls.singleProduct(id),
+      fromJson: (json) => SingleProductModel.fromJson(json),
+    );
   }
 }

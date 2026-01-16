@@ -14,6 +14,11 @@ class AuthController extends GetxController {
   final SecureStorage secureStorage = SecureStorage();
   Rx<UserModel> userProfile = UserModel().obs;
 
+  RxBool signInPasswordVisible = false.obs;
+  toggleSignInPasswordVisibility() {
+    signInPasswordVisible.value = !signInPasswordVisible.value;
+  }
+
   login() async {
     if (usernameController.text.isEmpty || passwordController.text.isEmpty) {
       return Get.snackbar('Error', 'Please fill all fields');
@@ -30,8 +35,8 @@ class AuthController extends GetxController {
         final token = userService.accessToken;
         final refreshToken = userService.refreshToken;
         await getUserInfo();
-        // print(token);
-        // print(refreshToken);
+        usernameController.clear();
+        passwordController.clear();
         await secureStorage.storeToken(token);
         await secureStorage.storeRefreshToken(refreshToken);
         Get.to(() => BottomNav());

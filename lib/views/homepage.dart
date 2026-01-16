@@ -165,7 +165,7 @@ class _HomepageState extends State<Homepage> {
                         return GestureDetector(
                           onTap: () async {
                             Get.to(
-                              () => ProductDetails(),
+                              () => const ProductDetails(),
                               arguments: product.id,
                               transition: Transition.leftToRight,
                             );

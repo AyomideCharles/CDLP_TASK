@@ -1,16 +1,38 @@
 # cpld_task
 
-A new Flutter project.
+# Features
 
-## Getting Started
+- User authentication
+- Accurate design implementation
+- Get products using a dummy json/Api
+- Get product ID/details from dummy json/Api
+- Switch between light and dark mode
+- Search products
+- Refresh products page
 
-This project is a starting point for a Flutter application.
+# Set up Instructions
 
-A few resources to get you started if this is your first Flutter project:
+- git clone
+- cd cdld_task
+- flutter pub get (to install dependencies)
+- flutter run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Architecture
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-- lib/
+
+controllers - manage app logic and state(GetX)
+models - defines data structure
+services - handles api request
+widgets - common widgets used across the application
+utils - text styles, supports
+views - contains application pages/screens
+
+# Tech Used
+
+- Flutter
+- Dart
+- GetX state management
+- Google Fonts
+- Secure Storage
+- Screwn Util
